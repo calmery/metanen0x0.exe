@@ -26,4 +26,10 @@ jobs:
       - run: npm ci
       - run: npx cross-env NODE_ENV=production npm run build
       - run: npx electron-builder --ia32 --win
-      - run: npx semantic-release
+      - env:
+          GIT_AUTHOR_EMAIL: 73190177+metaneno@users.noreply.github.com
+          GIT_AUTHOR_NAME: metaneno
+          GIT_COMMITTER_EMAIL: 73190177+metaneno@users.noreply.github.com
+          GIT_COMMITTER_NAME: metaneno
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: npx semantic-release
