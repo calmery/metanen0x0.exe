@@ -4,7 +4,6 @@
   "compression": "maximum",
   "files": ["build", "package.json"],
   "win": {
-    "publish": ["github"],
     "target": "portable"
   }
 }

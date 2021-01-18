@@ -1,0 +1,17 @@
+{
+  "plugins": [
+    "@semantic-release/commit-analyzer",
+    "@semantic-release/git",
+    [
+      "@semantic-release/github",
+      {
+        "assets": [
+          {
+            "path": "dist/metanen0x0.exe"
+          }
+        ]
+      }
+    ],
+    "@semantic-release/release-notes-generator"
+  ]
+}

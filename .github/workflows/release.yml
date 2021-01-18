@@ -1,4 +1,4 @@
-name: Publish
+name: Release
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
       - master
 
 jobs:
-  publish:
+  release:
     strategy:
       matrix:
         node-version: [12.18.3]
@@ -25,6 +25,5 @@ jobs:
           path: "**/node_modules"
       - run: npm ci
       - run: npx cross-env NODE_ENV=production npm run build
-      - env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: npx electron-builder --ia32 --publish always --win
+      - run: npx electron-builder --ia32 --win
+      - run: npx semantic-release
