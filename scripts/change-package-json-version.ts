@@ -7,5 +7,5 @@ packageJson.version = process.argv[2];
 
 fs.writeFileSync(
   path.resolve(__dirname, "../package.json"),
-  JSON.stringify(packageJson, null, 2)
+  `${JSON.stringify(packageJson, null, 2)}\n`
 );
