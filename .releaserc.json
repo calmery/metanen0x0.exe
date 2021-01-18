@@ -2,6 +2,12 @@
   "plugins": [
     "@semantic-release/changelog",
     "@semantic-release/commit-analyzer",
+    [
+      "@semantic-release/exec",
+      {
+        "prepareCmd": "ts-node scripts/change-package-json-version ${nextRelease.version}"
+      }
+    ],
     "@semantic-release/git",
     [
       "@semantic-release/github",
