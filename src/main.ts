@@ -1,4 +1,5 @@
 import { app, BrowserWindow } from "electron";
+import "source-map-support/register";
 
 const createWindow = () => {
   const window = new BrowserWindow({

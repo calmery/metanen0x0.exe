@@ -8,6 +8,7 @@ import merge from "webpack-merge";
 const isProduction = process.env.NODE_ENV === "production";
 
 const common: Partial<Configuration> = {
+  devtool: isProduction ? undefined : "source-map",
   mode: isProduction ? "production" : "development",
   module: {
     rules: [
@@ -43,7 +44,6 @@ const main: Configuration = merge(common, {
 });
 
 const renderer: Configuration = merge(common, {
-  devtool: isProduction ? undefined : "source-map",
   entry: path.resolve(__dirname, "src/renderer.ts"),
   output: {
     filename: "renderer.js",
