@@ -39,10 +39,11 @@
     "url": "git@github.com:calmery-chan/metanen0x0.exe.git"
   },
   "scripts": {
+    "build": "rimraf build && webpack",
     "lint": "run-s lint:eslint lint:prettier",
     "lint:eslint": "eslint --ext .js,.ts --fix --ignore-path .gitignore .",
     "lint:prettier": "prettier --ignore-path .gitignore --write .",
-    "watch": "rimraf build && webpack && run-p watch:*",
+    "watch": "npm run build && run-p watch:*",
     "watch:main": "nodemon --exec electron build/main --watch build/main.js",
     "watch:renderer": "webpack -w"
   },
