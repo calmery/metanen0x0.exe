@@ -24,6 +24,7 @@ jobs:
           key: ${{ runner.os }}-node_modules-${{ hashFiles('**/package-lock.json') }}
           path: "**/node_modules"
       - run: npm ci
+      - run: npx cross-env NODE_ENV=production webpack
       - env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: npm run build
+        run: npx electron-builder --ia32 --publish always --win
