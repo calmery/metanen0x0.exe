@@ -39,7 +39,9 @@
     "lint": "run-s lint:eslint lint:prettier",
     "lint:eslint": "eslint --ext .js,.ts --fix --ignore-path .gitignore .",
     "lint:prettier": "prettier --ignore-path .gitignore --write .",
-    "watch": "webpack -w"
+    "watch": "npm run build && run-p watch:*",
+    "watch:electron": "electron build/main",
+    "watch:webpack": "webpack -w"
   },
   "version": "0.0.0"
 }
