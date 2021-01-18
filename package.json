@@ -40,7 +40,7 @@
   },
   "scripts": {
     "build": "cross-env NODE_ENV=production run-s build:webpack build:electron",
-    "build:electron": "electron-builder --win --ia32",
+    "build:electron": "electron-builder --ia32 --publish always --win",
     "build:webpack": "rimraf build && webpack",
     "lint": "run-s lint:eslint lint:prettier",
     "lint:eslint": "eslint --ext .js,.ts --fix --ignore-path .gitignore .",

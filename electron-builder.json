@@ -2,6 +2,7 @@
   "appId": "art.metaneno.app",
   "files": ["build", "package.json"],
   "win": {
+    "publish": ["github"],
     "target": "portable"
   }
 }
