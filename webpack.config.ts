@@ -1,6 +1,6 @@
+import * as path from "path";
 import ForkTsCheckerWebpackPlugin from "fork-ts-checker-webpack-plugin";
 import HtmlWebpackPlugin from "html-webpack-plugin";
-import * as path from "path";
 import TerserWebpackPlugin from "terser-webpack-plugin";
 import { Configuration } from "webpack";
 import merge from "webpack-merge";
@@ -13,49 +13,49 @@ const common: Partial<Configuration> = {
     rules: [
       {
         test: /\.ts$/,
-        use: "ts-loader"
-      }
-    ]
+        use: "ts-loader",
+      },
+    ],
   },
   optimization: {
     minimize: isProduction,
     minimizer: [
       new TerserWebpackPlugin({
-        parallel: true
-      })
-    ]
+        parallel: true,
+      }),
+    ],
   },
   output: {
-    path: path.resolve(__dirname, "build")
+    path: path.resolve(__dirname, "build"),
   },
   plugins: [new ForkTsCheckerWebpackPlugin()],
   resolve: {
-    extensions: [".js", ".ts"]
-  }
+    extensions: [".js", ".ts"],
+  },
 };
 
 const main: Configuration = merge(common, {
   entry: path.resolve(__dirname, "src/main.ts"),
   output: {
-    filename: "main.js"
+    filename: "main.js",
   },
-  target: "electron-main"
+  target: "electron-main",
 });
 
 const renderer: Configuration = merge(common, {
   entry: path.resolve(__dirname, "src/renderer.ts"),
   output: {
-    filename: "renderer.js"
+    filename: "renderer.js",
   },
   plugins: [
     new HtmlWebpackPlugin({
       filename: path.resolve(__dirname, "build/index.html"),
       inject: "body",
       minify: isProduction,
-      template: path.resolve(__dirname, "static/index.html")
-    })
+      template: path.resolve(__dirname, "static/index.html"),
+    }),
   ],
-  target: "electron-renderer"
+  target: "electron-renderer",
 });
 
 export default [main, renderer];
