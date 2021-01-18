@@ -43,6 +43,7 @@ const main: Configuration = merge(common, {
 });
 
 const renderer: Configuration = merge(common, {
+  devtool: isProduction ? undefined : "source-map",
   entry: path.resolve(__dirname, "src/renderer.ts"),
   output: {
     filename: "renderer.js",
