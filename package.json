@@ -6,5 +6,12 @@
     "type": "git",
     "url": "git@github.com:calmery-chan/metanen0x0.exe.git"
   },
-  "version": "0.0.0"
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc -w"
+  },
+  "version": "0.0.0",
+  "devDependencies": {
+    "typescript": "^4.1.3"
+  }
 }
