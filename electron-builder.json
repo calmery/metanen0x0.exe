@@ -1,0 +1,7 @@
+{
+  "appId": "art.metaneno.app",
+  "files": ["build", "package.json"],
+  "win": {
+    "target": "portable"
+  }
+}

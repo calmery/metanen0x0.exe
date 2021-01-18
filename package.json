@@ -1,11 +1,14 @@
 {
+  "author": "Calmery <contact@calmery.me> (https://calmery.me/)",
   "description": "A joke application",
   "devDependencies": {
     "@types/node": "14.14.21",
     "@types/terser-webpack-plugin": "5.0.2",
     "@typescript-eslint/eslint-plugin": "4.13.0",
     "@typescript-eslint/parser": "4.13.0",
+    "cross-env": "7.0.3",
     "electron": "11.2.0",
+    "electron-builder": "22.9.1",
     "eslint": "7.18.0",
     "eslint-config-prettier": "7.1.0",
     "eslint-plugin-import": "2.22.1",
@@ -29,17 +32,20 @@
     "webpack-merge": "5.7.3"
   },
   "license": "MIT",
+  "main": "build/main.js",
   "name": "metanen0x0.exe",
   "repository": {
     "type": "git",
     "url": "git@github.com:calmery-chan/metanen0x0.exe.git"
   },
   "scripts": {
-    "build": "rimraf build && webpack",
+    "build": "cross-env NODE_ENV=production run-s build:webpack build:electron",
+    "build:electron": "electron-builder --win --ia32",
+    "build:webpack": "rimraf build && webpack",
     "lint": "run-s lint:eslint lint:prettier",
     "lint:eslint": "eslint --ext .js,.ts --fix --ignore-path .gitignore .",
     "lint:prettier": "prettier --ignore-path .gitignore --write .",
-    "watch": "npm run build && run-p watch:*",
+    "watch": "npm run build:webpack && run-p watch:*",
     "watch:main": "nodemon --exec electron build/main --watch build/main.js",
     "watch:renderer": "webpack -w"
   },
