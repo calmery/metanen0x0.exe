@@ -2,25 +2,17 @@ import * as path from "path";
 import { app, BrowserWindow } from "electron";
 import "source-map-support/register";
 
-const createWindow = () => {
+app.whenReady().then(() => {
   const window = new BrowserWindow({
-    width: 800,
+    center: true,
     height: 600,
+    resizable: false,
+    width: 800,
   });
 
+  window.hide();
   window.loadFile(path.resolve(__dirname, "index.html"));
-};
-
-app.whenReady().then(createWindow);
-
-app.on("window-all-closed", () => {
-  if (process.platform !== "darwin") {
-    app.quit();
-  }
-});
-
-app.on("activate", () => {
-  if (BrowserWindow.getAllWindows().length === 0) {
-    createWindow();
-  }
+  window.setAlwaysOnTop(true);
+  window.setMenu(null);
+  window.show();
 });

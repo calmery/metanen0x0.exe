@@ -1,1 +1,1 @@
-alert("Hello World");
+console.log("0x0");
