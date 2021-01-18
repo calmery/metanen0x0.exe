@@ -24,4 +24,4 @@ jobs:
           key: ${{ runner.os }}-node_modules-${{ hashFiles('**/package-lock.json') }}
           path: "**/node_modules"
       - run: npm ci
-      - run: npm run build
+      - run: npm run build:webpack
