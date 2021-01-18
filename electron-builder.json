@@ -1,5 +1,6 @@
 {
   "appId": "art.metaneno.app",
+  "artifactName": "めたねのおくすり.${ext}",
   "files": ["build", "package.json"],
   "win": {
     "publish": ["github"],
