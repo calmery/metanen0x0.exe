@@ -15,6 +15,7 @@
     "html-webpack-plugin": "5.0.0-beta.5",
     "husky": "4.3.8",
     "lint-staged": "10.5.3",
+    "nodemon": "2.0.7",
     "npm-run-all": "4.1.5",
     "prettier": "2.2.1",
     "rimraf": "3.0.2",
@@ -39,8 +40,8 @@
     "lint:eslint": "eslint --ext .js,.ts --fix --ignore-path .gitignore .",
     "lint:prettier": "prettier --ignore-path .gitignore --write .",
     "watch": "npm run build && run-p watch:*",
-    "watch:electron": "electron build/main",
-    "watch:webpack": "webpack -w"
+    "watch:main": "nodemon --exec electron build/main --watch build/main.js",
+    "watch:renderer": "webpack -w"
   },
   "version": "0.0.0"
 }
