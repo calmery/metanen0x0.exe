@@ -2,9 +2,7 @@
   "compilerOptions": {
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
-    "incremental": true,
-    "isolatedModules": true,
-    "lib": ["es2019"],
+    "lib": ["ES2019", "DOM"],
     "module": "commonjs",
     "moduleResolution": "node",
     "noFallthroughCasesInSwitch": true,
@@ -12,11 +10,9 @@
     "noUncheckedIndexedAccess": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "outDir": "./build/",
     "removeComments": true,
-    "rootDir": "./",
     "skipLibCheck": true,
     "strict": true,
-    "target": "es2019"
+    "target": "ES2019"
   }
 }
