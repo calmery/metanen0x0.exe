@@ -1,0 +1,10 @@
+{
+  "description": "A joke application",
+  "license": "MIT",
+  "name": "metanen0x0.exe",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:calmery-chan/metanen0x0.exe.git"
+  },
+  "version": "0.0.0"
+}
