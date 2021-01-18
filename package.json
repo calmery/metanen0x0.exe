@@ -28,7 +28,6 @@
     "webpack-merge": "5.7.3"
   },
   "license": "MIT",
-  "main": "build/main",
   "name": "metanen0x0.exe",
   "repository": {
     "type": "git",
