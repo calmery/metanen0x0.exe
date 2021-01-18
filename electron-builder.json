@@ -1,6 +1,7 @@
 {
-  "appId": "art.metaneno.app",
-  "artifactName": "めたねのおくすり.${ext}",
+  "appId": "art.metaneno.metanen0x0-exe",
+  "artifactName": "metanen0x0.${ext}",
+  "compression": "maximum",
   "files": ["build", "package.json"],
   "win": {
     "publish": ["github"],
