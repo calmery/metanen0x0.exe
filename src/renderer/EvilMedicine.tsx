@@ -98,14 +98,19 @@ const rainbow = css`
 export const EvilMedicine: React.FC = () => {
   const handleClickCloseButton = useCallback(() => {
     ipcRenderer.send(ELECTRON_IPC_CHANNEL_CLOSE);
-  }, [])
+  }, []);
 
-  return(
-  <div css={container}>
-    <Window headerIcon="icon.ico" headerTitle="繧√◆縺ｭ縺ｮ縺翫￥縺吶ｊ" onClickCloseButton={handleClickCloseButton}>
-      <div css={rainbow}>
-        <img css={icon} src="metaneno.jpg" />
-      </div>
-    </Window>
-  </div>
-)}
+  return (
+    <div css={container}>
+      <Window
+        headerIcon="icon.ico"
+        headerTitle="繧√◆縺ｭ縺ｮ縺翫￥縺吶ｊ"
+        onClickCloseButton={handleClickCloseButton}
+      >
+        <div css={rainbow}>
+          <img css={icon} src="metaneno.jpg" />
+        </div>
+      </Window>
+    </div>
+  );
+};
