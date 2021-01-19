@@ -11,7 +11,7 @@ app.whenReady().then(() => {
   });
 
   window.hide();
-  window.loadFile(path.resolve(__dirname, "index.html"));
+  window.loadFile(path.resolve(__dirname, "renderer.html"));
   window.setAlwaysOnTop(true);
   window.setMenu(null);
   window.show();

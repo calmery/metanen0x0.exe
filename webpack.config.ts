@@ -1,9 +1,12 @@
 import * as path from "path";
+import autoprefixer from "autoprefixer";
 import ForkTsCheckerWebpackPlugin from "fork-ts-checker-webpack-plugin";
 import HtmlWebpackPlugin from "html-webpack-plugin";
+import MiniCssExtractPlugin from "mini-css-extract-plugin";
 import TerserWebpackPlugin from "terser-webpack-plugin";
 import { Configuration } from "webpack";
 import merge from "webpack-merge";
+import packageJson from "./package.json";
 
 const isProduction = process.env.NODE_ENV === "production";
 
@@ -45,15 +48,38 @@ const main: Configuration = merge(common, {
 
 const renderer: Configuration = merge(common, {
   entry: path.resolve(__dirname, "src/renderer.ts"),
+  module: {
+    rules: [
+      {
+        test: /\.scss$/,
+        use: [
+          isProduction ? MiniCssExtractPlugin.loader : "style-loader",
+          "css-loader",
+          {
+            loader: "postcss-loader",
+            options: {
+              postcssOptions: {
+                plugins: [autoprefixer],
+              },
+            },
+          },
+          "sass-loader",
+        ],
+      },
+    ],
+  },
   output: {
     filename: "renderer.js",
   },
   plugins: [
     new HtmlWebpackPlugin({
-      filename: path.resolve(__dirname, "build/index.html"),
+      filename: path.resolve(__dirname, "build/renderer.html"),
       inject: "body",
       minify: isProduction,
-      template: path.resolve(__dirname, "static/index.html"),
+      title: packageJson.name,
+    }),
+    new MiniCssExtractPlugin({
+      filename: "renderer.css",
     }),
   ],
   target: "electron-renderer",
