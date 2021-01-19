@@ -1,10 +1,14 @@
 import { css } from "@emotion/react";
 import React from "react";
+import { WINDOW_HEIGHT, WINDOW_SHADOW_BLUR, WINDOW_WIDTH } from "../constants";
 
 // Styles
 
 const body = css`
   flex-grow: 1;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
 `;
 
 const button = css`
@@ -39,6 +43,7 @@ const header = css`
   height: 24px;
   user-select: none;
   width: 100%;
+  z-index: 2;
 `;
 
 const icon = css`
@@ -58,23 +63,26 @@ const title = css`
 const window = css`
   background: #fff;
   border: 1px solid rgba(0, 0, 0, 0.32);
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.24);
+  box-shadow: 0 0 ${WINDOW_SHADOW_BLUR}px rgba(0, 0, 0, 0.24);
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
   font-family: Roboto, sans-serif;
-  height: 600px;
-  width: 800px;
+  height: ${WINDOW_HEIGHT}px;
+  width: ${WINDOW_WIDTH}px;
 `;
 
 // Components
 
-export const Window: React.FC = ({ children }) => (
+export const Window: React.FC<{
+  headerIcon: string;
+  headerTitle: string;
+}> = ({ children, headerIcon, headerTitle }) => (
   <div css={window}>
     <div css={header}>
       <div css={title}>
-        <img css={icon} src="icon.ico" />
-        metanen0x0.exe
+        <img css={icon} src={headerIcon} />
+        {headerTitle}
       </div>
       <div css={buttons}>
         <div css={button}>

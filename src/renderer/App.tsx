@@ -1,14 +1,6 @@
 import { css, Global } from "@emotion/react";
 import React from "react";
-import { Window } from "./Window";
-
-const container = css`
-  /* background: #000; */
-  display: grid;
-  height: 100vh;
-  place-items: center;
-  width: 100vw;
-`;
+import { EvilMedicine } from "./EvilMedicine";
 
 const App: React.FC = () => (
   <>
@@ -22,9 +14,7 @@ const App: React.FC = () => (
         }
       `}
     />
-    <div css={container}>
-      <Window />
-    </div>
+    <EvilMedicine />
   </>
 );
 

@@ -1,6 +1,7 @@
 import * as path from "path";
 import { app, BrowserWindow } from "electron";
 import "source-map-support/register";
+import { DIAGONAL_LENGTH } from "../constants";
 
 app.whenReady().then(() => {
   const window = new BrowserWindow({
@@ -9,11 +10,11 @@ app.whenReady().then(() => {
     frame: false,
     fullscreenable: false,
     hasShadow: false,
-    height: 616,
+    height: DIAGONAL_LENGTH,
     maximizable: false,
     resizable: false,
     transparent: true,
-    width: 816,
+    width: DIAGONAL_LENGTH,
   });
 
   window.hide();
