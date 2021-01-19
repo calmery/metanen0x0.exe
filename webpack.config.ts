@@ -17,7 +17,7 @@ const common: Partial<Configuration> = {
   module: {
     rules: [
       {
-        test: /\.ts$/,
+        test: /\.tsx?$/,
         use: "ts-loader",
       },
     ],
@@ -35,7 +35,7 @@ const common: Partial<Configuration> = {
   },
   plugins: [new ForkTsCheckerWebpackPlugin()],
   resolve: {
-    extensions: [".js", ".ts"],
+    extensions: [".js", ".ts", ".tsx"],
   },
 };
 
@@ -48,7 +48,7 @@ const main: Configuration = merge(common, {
 });
 
 const renderer: Configuration = merge(common, {
-  entry: path.resolve(__dirname, "src/renderer.ts"),
+  entry: path.resolve(__dirname, "src/renderer.tsx"),
   module: {
     rules: [
       {
