@@ -13,6 +13,15 @@
       {
         "assets": [
           {
+            "name": "metanen0x0.exe",
+            "path": "dist/metanen0x0.exe"
+          },
+          {
+            "name": "めたねのおくすり.exe",
+            "path": "dist/metanen0x0.exe"
+          },
+          {
+            "name": "繧√◆縺ｭ縺ｮ縺翫￥縺吶ｊ.exe",
             "path": "dist/metanen0x0.exe"
           }
         ]
