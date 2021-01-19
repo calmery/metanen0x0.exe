@@ -1,8 +1,13 @@
 import { css, Global } from "@emotion/react";
 import React from "react";
+import { Window } from "./Window";
 
 const container = css`
-  color: red;
+  /* background: #000; */
+  display: grid;
+  height: 100vh;
+  place-items: center;
+  width: 100vw;
 `;
 
 const App: React.FC = () => (
@@ -10,17 +15,17 @@ const App: React.FC = () => (
     <Global
       styles={css`
         body {
-          align-items: center;
-          display: flex;
-          height: 100vh;
-          justify-content: center;
+          -webkit-app-region: drag;
+          margin: 0;
           overflow: hidden;
-          width: 100vw;
+          padding: 0;
         }
       `}
     />
-    <div css={container}>Hello World</div>
+    <div css={container}>
+      <Window />
+    </div>
   </>
 );
 
-export default <App />
+export default <App />;

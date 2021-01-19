@@ -4,15 +4,20 @@ import "source-map-support/register";
 
 app.whenReady().then(() => {
   const window = new BrowserWindow({
+    alwaysOnTop: true,
     center: true,
-    height: 600,
+    frame: false,
+    fullscreenable: false,
+    hasShadow: false,
+    height: 616,
+    maximizable: false,
     resizable: false,
-    width: 800,
+    transparent: true,
+    width: 816,
   });
 
   window.hide();
   window.loadFile(path.resolve(__dirname, "renderer.html"));
-  window.setAlwaysOnTop(true);
   window.setMenu(null);
   window.show();
 });
