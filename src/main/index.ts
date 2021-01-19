@@ -11,6 +11,7 @@ app.whenReady().then(() => {
     fullscreenable: false,
     hasShadow: false,
     height: DIAGONAL_LENGTH,
+    minimizable: false,
     maximizable: false,
     resizable: false,
     transparent: true,
