@@ -61,6 +61,7 @@ const title = css`
 `;
 
 const window = css`
+  -webkit-app-region: no-drag;
   background: #fff;
   border: 1px solid rgba(0, 0, 0, 0.32);
   box-shadow: 0 0 ${WINDOW_SHADOW_BLUR}px rgba(0, 0, 0, 0.24);
