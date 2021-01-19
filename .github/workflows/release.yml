@@ -26,6 +26,7 @@ jobs:
       - run: npm ci
       - run: npx cross-env NODE_ENV=production npm run build
       - run: npx electron-builder --ia32 --win
+      - run: npx ts-node scripts/create-zip-for-github-release.ts
       - env:
           GIT_AUTHOR_EMAIL: 73190177+metaneno@users.noreply.github.com
           GIT_AUTHOR_NAME: metaneno

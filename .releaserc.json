@@ -13,8 +13,7 @@
       {
         "assets": [
           {
-            "name": "metanen0x0.exe",
-            "path": "dist/metanen0x0.exe"
+            "path": "dist/metanen0x0.zip"
           }
         ]
       }
