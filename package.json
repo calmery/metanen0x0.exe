@@ -72,5 +72,5 @@
     "watch:main": "nodemon --exec electron build/main --watch build/main.js",
     "watch:renderer": "webpack -w"
   },
-  "version": "0.1.0"
+  "version": "0.2.0"
 }
