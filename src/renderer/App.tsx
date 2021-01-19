@@ -1,16 +1,11 @@
-/// <reference types="@emotion/react/types/css-prop"/>
-
 import { css, Global } from "@emotion/react";
 import React from "react";
-import ReactDOM from "react-dom";
 
 const container = css`
   color: red;
 `;
 
-// Components
-
-const Index: React.FC = () => (
+const App: React.FC = () => (
   <>
     <Global
       styles={css`
@@ -28,9 +23,4 @@ const Index: React.FC = () => (
   </>
 );
 
-// Main
-
-const div = document.createElement("div");
-document.body.appendChild(div);
-
-ReactDOM.render(<Index />, div);
+export default <App />

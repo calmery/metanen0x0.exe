@@ -38,7 +38,7 @@ const common: Partial<Configuration> = {
 };
 
 const main: Configuration = merge(common, {
-  entry: path.resolve(__dirname, "src/main.ts"),
+  entry: path.resolve(__dirname, "src/main"),
   output: {
     filename: "main.js",
   },
@@ -46,7 +46,7 @@ const main: Configuration = merge(common, {
 });
 
 const renderer: Configuration = merge(common, {
-  entry: path.resolve(__dirname, "src/renderer.tsx"),
+  entry: path.resolve(__dirname, "src/renderer"),
   output: {
     filename: "renderer.js",
   },
