@@ -1,9 +1,7 @@
 import * as path from "path";
-import autoprefixer from "autoprefixer";
 import CopyWebpackPlugin from "copy-webpack-plugin";
 import ForkTsCheckerWebpackPlugin from "fork-ts-checker-webpack-plugin";
 import HtmlWebpackPlugin from "html-webpack-plugin";
-import MiniCssExtractPlugin from "mini-css-extract-plugin";
 import TerserWebpackPlugin from "terser-webpack-plugin";
 import { Configuration } from "webpack";
 import merge from "webpack-merge";
@@ -49,26 +47,6 @@ const main: Configuration = merge(common, {
 
 const renderer: Configuration = merge(common, {
   entry: path.resolve(__dirname, "src/renderer.tsx"),
-  module: {
-    rules: [
-      {
-        test: /\.scss$/,
-        use: [
-          isProduction ? MiniCssExtractPlugin.loader : "style-loader",
-          "css-loader",
-          {
-            loader: "postcss-loader",
-            options: {
-              postcssOptions: {
-                plugins: [autoprefixer],
-              },
-            },
-          },
-          "sass-loader",
-        ],
-      },
-    ],
-  },
   output: {
     filename: "renderer.js",
   },
@@ -86,9 +64,6 @@ const renderer: Configuration = merge(common, {
       inject: "body",
       minify: isProduction,
       title: packageJson.name,
-    }),
-    new MiniCssExtractPlugin({
-      filename: "renderer.css",
     }),
   ],
   target: "electron-renderer",
