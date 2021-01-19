@@ -4,6 +4,7 @@
   "compression": "maximum",
   "files": ["build", "package.json"],
   "win": {
+    "icon": "build/icon.ico",
     "target": "portable"
   }
 }
