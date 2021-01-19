@@ -1,5 +1,12 @@
 {
-  "plugins": ["@emotion/babel-plugin"],
+  "plugins": [
+    [
+      "@emotion",
+      {
+        "labelFormat": "[filename]-[local]"
+      }
+    ]
+  ],
   "presets": [
     [
       "@babel/preset-react",
