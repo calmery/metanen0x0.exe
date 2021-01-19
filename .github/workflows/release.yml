@@ -31,5 +31,5 @@ jobs:
           GIT_AUTHOR_NAME: metaneno
           GIT_COMMITTER_EMAIL: 73190177+metaneno@users.noreply.github.com
           GIT_COMMITTER_NAME: metaneno
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
         run: npx semantic-release
