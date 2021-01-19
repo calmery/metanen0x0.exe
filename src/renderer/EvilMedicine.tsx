@@ -1,7 +1,8 @@
 import { css, keyframes } from "@emotion/react";
-import React from "react";
-import { DIAGONAL_LENGTH } from "../constants";
+import React, { useCallback } from "react";
+import { DIAGONAL_LENGTH, ELECTRON_IPC_CHANNEL_CLOSE } from "../constants";
 import { Window } from "./Window";
+import { ipcRenderer } from "electron";
 
 // Animations
 
@@ -50,7 +51,7 @@ const scale = keyframes`
 // Styles
 
 const container = css`
-  animation: ${rotate} linear 3.6s infinite;
+  /* animation: ${rotate} linear 3.6s infinite; */
   display: grid;
   height: 100vh;
   place-items: center;
@@ -94,12 +95,17 @@ const rainbow = css`
 
 // Components
 
-export const EvilMedicine: React.FC = () => (
+export const EvilMedicine: React.FC = () => {
+  const handleClickCloseButton = useCallback(() => {
+    ipcRenderer.send(ELECTRON_IPC_CHANNEL_CLOSE);
+  }, [])
+
+  return(
   <div css={container}>
-    <Window headerIcon="icon.ico" headerTitle="繧√◆縺ｭ縺ｮ縺翫￥縺吶ｊ">
+    <Window headerIcon="icon.ico" headerTitle="繧√◆縺ｭ縺ｮ縺翫￥縺吶ｊ" onClickCloseButton={handleClickCloseButton}>
       <div css={rainbow}>
         <img css={icon} src="metaneno.jpg" />
       </div>
     </Window>
   </div>
-);
+)}

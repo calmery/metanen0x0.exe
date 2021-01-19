@@ -77,7 +77,8 @@ const window = css`
 export const Window: React.FC<{
   headerIcon: string;
   headerTitle: string;
-}> = ({ children, headerIcon, headerTitle }) => (
+  onClickCloseButton?: () => void;
+}> = ({ children, headerIcon, headerTitle, onClickCloseButton }) => (
   <div css={window}>
     <div css={header}>
       <div css={title}>
@@ -91,7 +92,7 @@ export const Window: React.FC<{
         <div css={button}>
           <img src="maximize.svg" />
         </div>
-        <div css={closeButton}>
+        <div css={closeButton} onClick={onClickCloseButton}>
           <img src="close.svg" />
         </div>
       </div>
