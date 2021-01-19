@@ -46,6 +46,7 @@
     "rimraf": "3.0.2",
     "semantic-release": "17.3.3",
     "source-map-support": "0.5.19",
+    "svgo": "1.3.2",
     "terser-webpack-plugin": "5.1.1",
     "ts-node": "9.1.1",
     "typescript": "4.1.3",
@@ -63,9 +64,10 @@
   },
   "scripts": {
     "build": "rimraf build && webpack",
-    "lint": "run-s lint:eslint lint:prettier",
+    "lint": "run-s lint:eslint lint:prettier lint:svgo",
     "lint:eslint": "eslint --ext .js,.ts --fix --ignore-path .gitignore .",
     "lint:prettier": "prettier --ignore-path .gitignore --write .",
+    "lint:svgo": "svgo -f public -r",
     "watch": "npm run build && run-p watch:*",
     "watch:main": "nodemon --exec electron build/main --watch build/main.js",
     "watch:renderer": "webpack -w"

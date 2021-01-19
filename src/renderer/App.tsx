@@ -1,26 +1,21 @@
 import { css, Global } from "@emotion/react";
 import React from "react";
-
-const container = css`
-  color: red;
-`;
+import { EvilMedicine } from "./EvilMedicine";
 
 const App: React.FC = () => (
   <>
     <Global
       styles={css`
         body {
-          align-items: center;
-          display: flex;
-          height: 100vh;
-          justify-content: center;
+          -webkit-app-region: drag;
+          margin: 0;
           overflow: hidden;
-          width: 100vw;
+          padding: 0;
         }
       `}
     />
-    <div css={container}>Hello World</div>
+    <EvilMedicine />
   </>
 );
 
-export default <App />
+export default <App />;
