@@ -46,11 +46,6 @@
     "rimraf": "3.0.2",
     "semantic-release": "17.3.3",
     "source-map-support": "0.5.19",
-    "stylelint": "13.8.0",
-    "stylelint-config-prettier": "8.0.2",
-    "stylelint-config-recommended-scss": "4.2.0",
-    "stylelint-prettier": "1.1.2",
-    "stylelint-scss": "3.18.0",
     "terser-webpack-plugin": "5.1.1",
     "ts-node": "9.1.1",
     "typescript": "4.1.3",
@@ -68,10 +63,9 @@
   },
   "scripts": {
     "build": "rimraf build && webpack",
-    "lint": "run-s lint:eslint lint:prettier lint:stylelint",
+    "lint": "run-s lint:eslint lint:prettier",
     "lint:eslint": "eslint --ext .js,.ts --fix --ignore-path .gitignore .",
     "lint:prettier": "prettier --ignore-path .gitignore --write .",
-    "lint:stylelint": "stylelint --fix --ignore-path .gitignore **/*.scss",
     "watch": "npm run build && run-p watch:*",
     "watch:main": "nodemon --exec electron build/main --watch build/main.js",
     "watch:renderer": "webpack -w"
