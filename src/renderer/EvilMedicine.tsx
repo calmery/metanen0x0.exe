@@ -51,7 +51,7 @@ const scale = keyframes`
 // Styles
 
 const container = css`
-  /* animation: ${rotate} linear 3.6s infinite; */
+  animation: ${rotate} linear 3.6s infinite;
   display: grid;
   height: 100vh;
   place-items: center;
