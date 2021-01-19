@@ -1,5 +1,6 @@
 import * as path from "path";
 import autoprefixer from "autoprefixer";
+import CopyWebpackPlugin from "copy-webpack-plugin";
 import ForkTsCheckerWebpackPlugin from "fork-ts-checker-webpack-plugin";
 import HtmlWebpackPlugin from "html-webpack-plugin";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
@@ -72,6 +73,14 @@ const renderer: Configuration = merge(common, {
     filename: "renderer.js",
   },
   plugins: [
+    new CopyWebpackPlugin({
+      patterns: [
+        {
+          from: path.resolve(__dirname, "public"),
+          to: path.resolve(__dirname, "build"),
+        },
+      ],
+    }),
     new HtmlWebpackPlugin({
       filename: path.resolve(__dirname, "build/renderer.html"),
       inject: "body",
